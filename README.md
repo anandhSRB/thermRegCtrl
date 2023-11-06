@@ -1,5 +1,5 @@
 # thermRegCtrl
-Running JOS-3 thermoregulation model with STAR-CCM+ with control for heating and recirculation. 
+Running JOS-3 thermoregulation model [1] with STAR-CCM+ with control for heating and recirculation. 
 
 # Scripts organization
 ## Co-simulation in STAR-CCM+
@@ -21,4 +21,6 @@ Include src/thermregctrl/ThermRegCtrl.java, pythonFiles/CoSim.py, dist/thermRegC
 Use 
 > starccm+ -Ver 2210 -np 16 -batch ThermRegCtrl.java -classpath thermRegCtrl.jar *.sim
 
+# References
+[1] Takahashi, Y., Nomoto, A., Yoda, S., Hisayama, R., Ogata, M., Ozeki, Y. and Tanabe, S.I., 2021. Thermoregulation model JOS-3 with new open source code. Energy and Buildings, 231, p.110575.
 
