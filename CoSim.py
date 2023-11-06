@@ -13,13 +13,13 @@ Modification based on heat fluxes from CFD and evaporation from skin
 Driver=jos3.JOS3(height=1.8,weight=75,age=30,ex_output="all")
 
 
-# Environmental condition
+# Environmental condition setup according to the simulation
 ambTemp = -10 #degC
 radTemp = -10 #degC
 ambRH = 70 #%
 
 ## Constant settings - Global variables
-activityLevel = 1.3 # PAR
+activityLevel = 1.6 # PAR
 
 #Sim settings
 dt = 1 #s
@@ -70,7 +70,7 @@ def clothingReq(Ta):
 
 #Driver settings
 Driver.Icl=clothingReq(ambTemp)
-Driver.PAR = activityLevel*1.2
+Driver.PAR = activityLevel
 Driver.posture='sitting'
 soakTime = 5 # min
 
@@ -122,6 +122,9 @@ corrDictJOSToBerk={'Head':'head',
 
 ## Function definitions
 def InitSolution(model,ambTemp,velocity,radTemp,RH,time):
+    """
+    Generate initial skin temperature based on soaked conditions
+    """
     model.Ta=ambTemp
     model.Va=velocity
     model.Tr=radTemp
@@ -131,6 +134,9 @@ def InitSolution(model,ambTemp,velocity,radTemp,RH,time):
     return model
 
 def WriteToCSVForCFD(model,file,new,history):
+    """
+    Write solution to *.csv file based on the solution
+    """
     df = pd.DataFrame(model.dict_results())
     df = df.drop(columns=['ModTime'])
     for col in df.columns:
@@ -150,7 +156,9 @@ def WriteToCSVForCFD(model,file,new,history):
         history.to_csv(file+'.csv',index=0)
         
 def RenameColumnsCFD(case):
-    
+    """
+    Renames columns from CFD exports
+    """
     columnNames = case.columns
     columns=[columnNames[0]]
     for col in columnNames[1:]:
@@ -164,6 +172,10 @@ def RenameColumnsCFD(case):
     return case
 
 def surfaceTemperatureForCFD(model,df,new):
+    """
+    Compute the clothing temperature from skin temperature and heat flux.
+    Additionally, compute the vapor flux based on the latent heat flux.
+    """
     Tcl = []
     R_clothing = model.Icl*0.155    
     evaporationFlux = []  
@@ -252,13 +264,16 @@ if __name__=='__main__':
     Driver.RH = rhDriver
     Driver._to = np.array(toDriver)
        
-    
+    ## Compute the overall thermal resistance between air and the skin
     r_t = abs((np.array(Tcl)-Driver._to)/np.array(heatFluxDriver))+Driver.Icl*0.155
     Driver._rt = r_t
-    Driver._hc = 1/abs((np.array(Tcl)-Driver._to)/np.array(heatFluxDriver))
+
+    ## Set the heat transfer coefficient for estimations of evaporative resistance
+    Driver._hc = 1/abs((np.array(Tcl)-Driver._to)/np.array(heatFluxDriver)) 
+
     
     print('Computing new skin temperatures...')
-    ## simulate the humans
+    ## simulate the human
     Driver.simulate(1,dt)    
     print('done')
 
