@@ -1,10 +1,11 @@
 # thermRegCtrl
 Running JOS-3 thermoregulation model [1] with STAR-CCM+ with control for heating and recirculation. 
+For more details on the implementation, refer to [2].
 
 # Scripts organization
 ## Co-simulation in STAR-CCM+
 The scripts were written for STAR-CCM+ v2210. The Java files can be compiled in Netbeans along with the STAR-CCM+ libraries. The compiled *.JAR file in the dist/ folder can access the classes.
-The file src/thermregctrl/ThermRegCtrl.java can be used to run the simulation. The scripts makes function calls to files in src/classes/ intermittently for recirculation and cab heater control. 
+The file src/thermregctrl/ThermRegCtrl.java can be used to run the simulation. The scripts make function calls to files in src/classes/ intermittently for recirculation and cab heater control. 
 
 ## JOS3 in Python3
 The file pythonFiles/CoSim.py is called from src/thermregctrl/ThermRegCtrl.java. After installing jos3, replace the source file ('jos3.py') in the site-packages/jos3/ folder, with the 'jos3.py' available in the pythonFiles/ directory.
@@ -23,4 +24,16 @@ Use
 
 # References
 [1] Takahashi, Y., Nomoto, A., Yoda, S., Hisayama, R., Ogata, M., Ozeki, Y. and Tanabe, S.I., 2021. Thermoregulation model JOS-3 with new open source code. Energy and Buildings, 231, p.110575.
+[2] Ramesh Babu, A., Sebben, S., Chronéer, Z., & Etemad, S., 2024. An adaptive cabin air recirculation strategy for an electric truck using a coupled CFD-thermoregulation approach. International Journal of Heat and Mass Transfer, 221, 125056.
 
+# Citation
+```@article{RAMESHBABU2024125056,
+title = {An adaptive cabin air recirculation strategy for an electric truck using a coupled CFD-thermoregulation approach},
+journal = {International Journal of Heat and Mass Transfer},
+volume = {221},
+pages = {125056},
+year = {2024},
+issn = {0017-9310},
+doi = {https://doi.org/10.1016/j.ijheatmasstransfer.2023.125056},
+author = {Anandh {Ramesh Babu} and Simone Sebben and Zenitha Chronéer and Sassan Etemad},
+}´´´
