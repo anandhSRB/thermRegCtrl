@@ -27,8 +27,8 @@ The UCB-Zhang comfort model has been included in pythonFiles/BerkeleyModel.py
 Use the script pythonFiles/postComfort.py that uses the BerkeleyModel.py and the data from '*.csv' to compute sensations and comfort metrics.
 
 # References
-> [1] Takahashi, Y., Nomoto, A., Yoda, S., Hisayama, R., Ogata, M., Ozeki, Y. and Tanabe, S.I., 2021. Thermoregulation model JOS-3 with new open source code. Energy and Buildings, 231, p.110575.
-> [2] Ramesh Babu, A., Sebben, S., Chronéer, Z., & Etemad, S., 2024. An adaptive cabin air recirculation strategy for an electric truck using a coupled CFD-thermoregulation approach. International Journal of Heat and Mass Transfer, 221, 125056.
+1. Takahashi, Y., Nomoto, A., Yoda, S., Hisayama, R., Ogata, M., Ozeki, Y. and Tanabe, S.I., 2021. Thermoregulation model JOS-3 with new open source code. Energy and Buildings, 231, p.110575.
+2. Ramesh Babu, A., Sebben, S., Chronéer, Z., & Etemad, S., 2024. An adaptive cabin air recirculation strategy for an electric truck using a coupled CFD-thermoregulation approach. International Journal of Heat and Mass Transfer, 221, 125056.
 
 # Citation
 ```
