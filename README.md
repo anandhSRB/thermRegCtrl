@@ -27,7 +27,8 @@ Use
 [2] Ramesh Babu, A., Sebben, S., Chronéer, Z., & Etemad, S., 2024. An adaptive cabin air recirculation strategy for an electric truck using a coupled CFD-thermoregulation approach. International Journal of Heat and Mass Transfer, 221, 125056.
 
 # Citation
-```@article{RAMESHBABU2024125056,
+```
+@article{RAMESHBABU2024125056,
 title = {An adaptive cabin air recirculation strategy for an electric truck using a coupled CFD-thermoregulation approach},
 journal = {International Journal of Heat and Mass Transfer},
 volume = {221},
@@ -36,4 +37,5 @@ year = {2024},
 issn = {0017-9310},
 doi = {https://doi.org/10.1016/j.ijheatmasstransfer.2023.125056},
 author = {Anandh {Ramesh Babu} and Simone Sebben and Zenitha Chronéer and Sassan Etemad},
-}´´´
+}
+´´´
